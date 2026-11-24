@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GuardSLM — Updated Pilot Results and Methodology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fa;--panel:#fff;--ink:#15212b;--muted:#5b6b78;--rule:#d5dde3;--accent:#0d6b70;--accent-soft:#d8eeee;--warn:#a4372b;--warn-soft:#f6dedb;--bar1:#a9b8c4;--serif:"Newsreader",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif;box-sizing:border-box}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11181e;--panel:#182129;--ink:#e6edf2;--muted:#93a3b0;--rule:#2c3944;--accent:#5cc4c8;--accent-soft:#17383b;--warn:#f0857a;--warn-soft:#3a2220;--bar1:#4c6072}}
+:root[data-theme="dark"]{--bg:#11181e;--panel:#182129;--ink:#e6edf2;--muted:#93a3b0;--rule:#2c3944;--accent:#5cc4c8;--accent-soft:#17383b;--warn:#f0857a;--warn-soft:#3a2220;--bar1:#4c6072}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:16px}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 var(--serif)}
+.wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;max-width:1120px;margin:auto;padding:40px 24px 96px}
+nav.toc{position:sticky;top:24px;align-self:start;font:14px var(--sans)}nav.toc p{color:var(--muted);font-size:13px}nav.toc a{display:block;padding:5px 0 5px 12px;color:var(--muted);text-decoration:none;border-left:2px solid var(--rule)}nav.toc a:hover{color:var(--accent);border-left-color:var(--accent)}
+main{min-width:0;max-width:760px}h1{font-size:clamp(30px,4.4vw,44px);line-height:1.12;font-weight:600;margin:0 0 14px}h2{font-size:28px;line-height:1.2;font-weight:600;margin:58px 0 14px}h3{font-size:21px;line-height:1.25;margin:28px 0 8px}p{margin:0 0 16px}.sub{font:15px/1.5 var(--sans);color:var(--muted);margin-bottom:28px}.lede{font-size:21px;line-height:1.55}.sans,table,figcaption,.callout,.spec{font-family:var(--sans)}a{color:var(--accent)}ul,ol{padding-left:22px;margin:0 0 16px}li{margin-bottom:7px}
+.callout{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--accent);padding:16px 20px;border-radius:4px;margin:22px 0;font-size:16px;line-height:1.55}.callout.warn{border-left-color:var(--warn)}.callout strong.t{display:block;margin-bottom:6px}.callout p:last-child,.callout ul:last-child{margin-bottom:0}
+.tablewrap{overflow-x:auto;margin:18px 0 8px;border:1px solid var(--rule);border-radius:4px;background:var(--panel)}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.4}th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}th[scope=row]{text-align:left;font-weight:500;white-space:normal;min-width:190px}thead th{font-weight:600;color:var(--muted);text-align:right;font-size:13px;vertical-align:bottom}thead th:first-child{text-align:left}tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}.muted{color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}.metric{background:var(--panel);border:1px solid var(--rule);padding:16px;border-radius:4px}.metric .n{font:600 28px var(--sans);color:var(--accent)}.metric .l{font:13px/1.4 var(--sans);color:var(--muted)}
+figure{margin:24px 0}svg{width:100%;height:auto;display:block}svg text{font-family:var(--sans);fill:var(--ink)}svg .grid{stroke:var(--rule);stroke-width:1}svg .tick{font-size:12px;fill:var(--muted)}svg .lab{font-size:13px}svg .val{font-size:12px;fill:var(--muted)}svg .bar-acc{fill:var(--bar1)}svg .bar-pair{fill:var(--accent)}svg .chance{stroke:var(--warn);stroke-width:1.5;stroke-dasharray:5 4}svg .chlab{font-size:12px;fill:var(--warn)}figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+.kv{display:grid;grid-template-columns:145px 1fr;gap:7px 18px;font:15px/1.5 var(--sans)}.kv dt{font-weight:600}.kv dd{margin:0}
+@media(max-width:900px){.wrap{grid-template-columns:1fr;gap:0;padding:24px 18px 72px}nav.toc{position:static;margin-bottom:28px}nav.toc a{display:inline-block;border:0;padding:4px 10px 4px 0}body{font-size:17px}.cards{grid-template-columns:1fr 1fr}}
+@media print{nav.toc{display:none}.wrap{display:block}body{background:white}}
+</style>
+</head>
+<body><div class="wrap">
+<nav class="toc" aria-label="Contents"><p>Contents</p>
+<a href="#summary">Summary</a><a href="#goal">Goal and hypothesis</a><a href="#method">Original methodology</a><a href="#new-run">Updated test run</a><a href="#results">Results</a><a href="#prior-metrics">Original full metrics</a><a href="#interpretation">Insights</a><a href="#validity">Limitations</a><a href="#decision">Decision gate</a><a href="#next">Next steps</a><a href="#refs">References</a>
+</nav>
+<main>
+<h1>Can small models act as permission gatekeepers for AI agents in Moodle?</h1>
+<p class="sub">Updated pilot report · Google Colab · 12 October 2026 · Based on the original pilot summary and the new <code>colab_pilot.ipynb</code> PDF output.</p>
+<p class="lede">The new run strengthens one finding: the 7B Qwen model is the strongest zero-shot baseline, reaching 72.5% matched-pair accuracy. But neither fine-tuning Qwen on WebGuard data nor evaluating PolicyGuard-4B solved the context-sensitive permission task. No tested model reaches the project's 80% pair-accuracy gate.</p>
+
+<h2 id="summary">Executive summary</h2>
+<div class="cards">
+<div class="metric"><div class="n">72.5%</div><div class="l">Best pair accuracy: Qwen2.5-7B-Instruct, 4-bit</div></div>
+<div class="metric"><div class="n">0%</div><div class="l">WebGuard-fine-tuned Qwen-3B pair accuracy</div></div>
+<div class="metric"><div class="n">12.5%</div><div class="l">PolicyGuard-4B pair accuracy</div></div>
+</div>
+<ul>
+<li><strong>Pair accuracy remains the key metric.</strong> A model must get both sides of a matched pair right—BLOCK the disallowed action and ALLOW the permitted counterpart. Ordinary item accuracy can hide failure to respond to changed context.</li>
+<li><strong>Scale helped in the zero-shot Qwen family, but not monotonically.</strong> Qwen 7B led at 72.5% pair accuracy; Qwen 1.5B reached 37.5%, while Qwen 0.5B and 3B scored 22.5% and 17.5%.</li>
+<li><strong>The fine-tuned WebGuard model did not transfer to this task.</strong> After QLoRA fine-tuning on 1,982 WebGuard training samples, Qwen-3B reached 43.8% item accuracy but 0% pair accuracy on the Moodle cases.</li>
+<li><strong>PolicyGuard-4B was also weak on matched pairs.</strong> It scored 56.2% item accuracy and 12.5% pair accuracy in this run.</li>
+<li><strong>Provisional decision: continue, but do not claim deployment readiness.</strong> Results support the motivation for a context-aware gatekeeper, while showing that more training data alone—or reusing an existing guardrail checkpoint—is not yet enough.</li>
+</ul>
+
+<h2 id="goal">Goal and hypothesis</h2>
+<p>The project proposes an AI assistant inside a university learning platform such as Moodle or Canvas. Before the assistant executes a browser action, a small local gatekeeper checks whether that action is permitted by the user's role, the current platform state, and the course policy. Its decision can be ALLOW, BLOCK, or ASK.</p>
+<p>The central research problem is <strong>context-sensitive authorization</strong>, not generic harmful-content detection. The same action may be allowed in a practice quiz and forbidden in a graded quiz, or allowed for a student's own record but forbidden for a classmate's private data. The model must notice the context fact that changes the correct decision.</p>
+<div class="callout"><strong class="t">Hypothesis under test</strong>Existing general-purpose and safety guard models will miss a meaningful share of these permission flips; a task-specific gatekeeper may improve reliability. The pilot tests the baseline and evaluation method, not a production-ready system.</div>
+
+<h2 id="method">Original methodology</h2>
+<dl class="kv">
+<dt>Evaluation set</dt><dd>80 Moodle LMS test cases arranged as 40 matched pairs. The PDF reports that the cases were loaded from <code>data/dummy/dummy_cases.json</code>.</dd>
+<dt>Pair construction</dt><dd>Within each pair, one contextual fact changes and the correct decision should flip. The original report describes 8 templates (T1–T8), with 5 pairs per template.</dd>
+<dt>Case context</dt><dd>User role, request, page title and accessibility-tree snapshot, proposed action, Moodle state facts, and course-policy text.</dd>
+<dt>Gold decisions</dt><dd>Each pair contains one disallowed and one allowed action. The intended pattern is BLOCK → ALLOW.</dd>
+<dt>Evaluation flow</dt><dd>Load and validate the cases; run each adapter; map its native output to the common ALLOW/BLOCK label where needed; calculate item and pair metrics; compare models.</dd>
+<dt>Runtime</dt><dd>Google Colab with a Tesla T4 GPU, reported as 15.64 GB VRAM. Models were evaluated sequentially and unloaded after each run.</dd>
+</dl>
+<h3>Metrics and how to interpret them</h3>
+<ul>
+<li><strong>Item accuracy:</strong> correctly labelled individual cases divided by 80.</li>
+<li><strong>Pair accuracy:</strong> pairs for which both cases are correct divided by 40. This is the primary context-sensitivity metric.</li>
+<li><strong>Flip rate:</strong> in this notebook's output, the reported flip rate equals pair accuracy because the gold label flips in every pair. It is not an independent metric.</li>
+<li><strong>Chance reference:</strong> the original report uses 25% as the approximate pair-accuracy reference for random independent guessing. A constant decision such as always BLOCK gives 50% item accuracy but 0% pair accuracy.</li>
+<li><strong>Decision gate:</strong> the project uses 80% pair accuracy as a practical threshold for this pilot; the original proposal's pivot condition also asks whether a strong full-context baseline approaches 95% or more.</li>
+</ul>
+<div class="callout warn"><strong class="t">Important distinction</strong>The original HTML report described an earlier run from 28 September 2026. This document retains its research question, case design, metric definitions and decision logic, but reports the new 12 October results below. The earlier and new numbers should not be blended into one run.</div>
+
+<h2 id="new-run">What changed in the new run</h2>
+<p>The new Colab notebook expands the evaluation in two important ways beyond the earlier zero-shot comparison: it fine-tunes Qwen-3B on the official WebGuard training data using QLoRA, and it evaluates the actual <code>Rakancorle1/PolicyGuard-4B</code> checkpoint using its native output format.</p>
+<ul>
+<li><strong>Zero-shot Qwen baselines:</strong> Qwen2.5-0.5B, 1.5B, 3B, and 7B. The 7B model was loaded in 4-bit quantization; the other listed configurations used <code>load_in_4bit=False</code>.</li>
+<li><strong>WebGuard training data:</strong> the notebook downloaded the accessibility-tree training file containing 1,982 samples. Its reported labels were SAFE: 545, LOW: 876, HIGH: 561.</li>
+<li><strong>Fine-tuning:</strong> Qwen2.5-3B-Instruct was fine-tuned for 2 epochs with 4-bit QLoRA; the LoRA adapter was saved under <code>models/webguard_qwen_lora</code>.</li>
+<li><strong>Two-stage decision mapping:</strong> WebGuard's native risk tier was mapped as SAFE/LOW → ALLOW and HIGH → BLOCK. PolicyGuard's native <code>no_violation</code> → ALLOW and <code>violation</code> → BLOCK.</li>
+<li><strong>PolicyGuard-4B:</strong> loaded from <code>Rakancorle1/PolicyGuard-4B</code> and evaluated on the same 80-case set.</li>
+</ul>
+
+<h2 id="results">New test results</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Model / configuration</th><th>Parameters</th><th>Item accuracy</th><th>Pair accuracy</th><th>Flip rate</th></tr></thead>
+<tbody>
+<tr><th scope="row">Qwen2.5-0.5B-Instruct (zero-shot)</th><td>0.5B</td><td>60.0%</td><td><strong>22.5%</strong></td><td>22.5%</td></tr>
+<tr><th scope="row">Qwen2.5-1.5B-Instruct (zero-shot)</th><td>1.5B</td><td>68.8%</td><td><strong>37.5%</strong></td><td>37.5%</td></tr>
+<tr><th scope="row">Qwen2.5-3B-Instruct (zero-shot)</th><td>3B</td><td>58.8%</td><td><strong>17.5%</strong></td><td>17.5%</td></tr>
+<tr><th scope="row">Qwen2.5-7B-Instruct (zero-shot, 4-bit)</th><td>7B</td><td>81.2%</td><td><strong>72.5%</strong></td><td>72.5%</td></tr>
+<tr><th scope="row">WebGuard fine-tuned Qwen-3B (QLoRA)</th><td>3B base</td><td>43.8%</td><td><strong>0.0%</strong></td><td>0.0%</td></tr>
+<tr><th scope="row">PolicyGuard-4B (native trajectory evaluation)</th><td>4B</td><td>56.2%</td><td><strong>12.5%</strong></td><td>12.5%</td></tr>
+</tbody></table></div>
+<p class="sans" style="font-size:14px;color:var(--muted)">Source: the updated Decision Gate Report supplied on 12 October 2026. Latency is average generation time per action. The report lists zero parse errors for all six new configurations.</p>
+<h3>Complete metrics from the new Decision Gate Report</h3>
+<div class="tablewrap"><table><thead><tr><th>Model</th><th>False allows</th><th>False blocks</th><th>Parse errors</th><th>Avg. latency</th><th>Gate status</th></tr></thead><tbody>
+<tr><th scope="row">Qwen 2.5 0.5B (zero-shot)</th><td>26</td><td>6</td><td>0</td><td>1,656.7 ms</td><td>FAIL</td></tr>
+<tr><th scope="row">Qwen 2.5 1.5B (zero-shot)</th><td>22</td><td>3</td><td>0</td><td>2,022.6 ms</td><td>FAIL</td></tr>
+<tr><th scope="row">Qwen 2.5 3B (zero-shot)</th><td>1</td><td>29</td><td>0</td><td>2,628.7 ms</td><td>FAIL</td></tr>
+<tr><th scope="row">Qwen 2.5 7B (zero-shot, 4-bit)</th><td>7</td><td>8</td><td>0</td><td>3,376.6 ms</td><td>NEEDS SFT</td></tr>
+<tr><th scope="row">WebGuard (fine-tuned Qwen 3B)</th><td>38</td><td>7</td><td>0</td><td>1,010.9 ms</td><td>FAIL</td></tr>
+<tr><th scope="row">PolicyGuard-4B (Strategy A)</th><td>5</td><td>30</td><td>0</td><td>286.8 ms</td><td>FAIL</td></tr>
+</tbody></table></div>
+<p><strong>Interpretation:</strong> Qwen 0.5B and WebGuard show the highest unsafe-action leakage (26 and 38 false allows). Qwen 3B and PolicyGuard-4B are conservative but block many legitimate actions (29 and 30 false blocks). Qwen 7B has the best pair accuracy, but still records 7 false allows, 8 false blocks, and roughly 3.38 seconds average latency per action.</p>
+
+<figure>
+<svg viewBox="0 0 760 360" role="img" aria-label="Item accuracy and pair accuracy for six models">
+<line x1="190" x2="190" y1="28" y2="320" class="grid"/><line x1="320" x2="320" y1="28" y2="320" class="grid"/><line x1="450" x2="450" y1="28" y2="320" class="grid"/><line x1="580" x2="580" y1="28" y2="320" class="grid"/><line x1="710" x2="710" y1="28" y2="320" class="grid"/>
+<text x="190" y="344" class="tick" text-anchor="middle">0%</text><text x="320" y="344" class="tick" text-anchor="middle">25%</text><text x="450" y="344" class="tick" text-anchor="middle">50%</text><text x="580" y="344" class="tick" text-anchor="middle">75%</text><text x="710" y="344" class="tick" text-anchor="middle">100%</text>
+<line x1="320" x2="320" y1="28" y2="320" class="chance"/><text x="326" y="20" class="chlab">25% pair reference</text>
+<text x="180" y="56" class="lab" text-anchor="end">Qwen 0.5B</text><rect x="190" y="39" width="312" height="13" class="bar-acc"/><rect x="190" y="54" width="117" height="13" class="bar-pair"/><text x="507" y="50" class="val">60.0</text><text x="312" y="65" class="val">22.5</text>
+<text x="180" y="104" class="lab" text-anchor="end">Qwen 1.5B</text><rect x="190" y="87" width="357.8" height="13" class="bar-acc"/><rect x="190" y="102" width="195" height="13" class="bar-pair"/><text x="553" y="98" class="val">68.8</text><text x="390" y="113" class="val">37.5</text>
+<text x="180" y="152" class="lab" text-anchor="end">Qwen 3B</text><rect x="190" y="135" width="305.8" height="13" class="bar-acc"/><rect x="190" y="150" width="91" height="13" class="bar-pair"/><text x="501" y="146" class="val">58.8</text><text x="286" y="161" class="val">17.5</text>
+<text x="180" y="200" class="lab" text-anchor="end">Qwen 7B</text><rect x="190" y="183" width="422.2" height="13" class="bar-acc"/><rect x="190" y="198" width="377" height="13" class="bar-pair"/><text x="618" y="194" class="val">81.2</text><text x="572" y="209" class="val">72.5</text>
+<text x="180" y="248" class="lab" text-anchor="end">WebGuard FT</text><rect x="190" y="231" width="227.8" height="13" class="bar-acc"/><rect x="190" y="246" width="1" height="13" class="bar-pair"/><text x="424" y="242" class="val">43.8</text><text x="196" y="257" class="val">0.0</text>
+<text x="180" y="296" class="lab" text-anchor="end">PolicyGuard 4B</text><rect x="190" y="279" width="292.2" height="13" class="bar-acc"/><rect x="190" y="294" width="65" height="13" class="bar-pair"/><text x="488" y="290" class="val">56.2</text><text x="260" y="305" class="val">12.5</text>
+</svg>
+<figcaption>Item accuracy (grey) can look substantially better than pair accuracy (teal). Pair accuracy is the more direct measure of whether the model changes its decision when the permission-relevant context changes.</figcaption>
+</figure>
+
+
+<h3>New-run pair-transition breakdown</h3>
+<p>Each pair contains an unsafe case (A) and its safe counterpart (B). Transition counts are reproduced from the supplied report; the desired behavior is BLOCK→ALLOW.</p>
+<div class="tablewrap"><table><thead><tr><th>Model</th><th>ALLOW→BLOCK</th><th>ALLOW→ALLOW</th><th>BLOCK→BLOCK</th><th>BLOCK→ALLOW</th><th>Correct pair flips</th></tr></thead><tbody>
+<tr><th scope="row">Qwen 2.5 0.5B</th><td>1</td><td>25</td><td>5</td><td>9</td><td>9/40</td></tr>
+<tr><th scope="row">Qwen 2.5 1.5B</th><td>0</td><td>22</td><td>3</td><td>15</td><td>15/40</td></tr>
+<tr><th scope="row">Qwen 2.5 3B</th><td>0</td><td>1</td><td>29</td><td>7</td><td>7/40</td></tr>
+<tr><th scope="row">Qwen 2.5 7B (4-bit)</th><td>4</td><td>3</td><td>4</td><td>29</td><td>29/40</td></tr>
+<tr><th scope="row">WebGuard fine-tuned Qwen 3B</th><td>5</td><td>33</td><td>2</td><td>0</td><td>0/40</td></tr>
+<tr><th scope="row">PolicyGuard-4B (Strategy A)</th><td>0</td><td>5</td><td>30</td><td>5</td><td>5/40</td></tr>
+</tbody></table></div>
+<p class="sans" style="font-size:14px;color:var(--muted)">The four transition counts sum to 40 for each model. All six models had zero parse errors in this report.</p>
+<h3>New-run accuracy by template (T1–T8)</h3>
+<div class="tablewrap"><table><thead><tr><th>Template</th><th>Qwen 0.5B</th><th>Qwen 1.5B</th><th>Qwen 3B</th><th>Qwen 7B</th><th>WebGuard FT</th><th>PolicyGuard-4B</th></tr></thead><tbody>
+<tr><th scope="row">T1 Graded vs practice quiz / AI assistance</th><td>50%</td><td>50%</td><td>50%</td><td>20%</td><td>50%</td><td>50%</td></tr>
+<tr><th scope="row">T2 Assignment AI policy / disclosure</th><td>80%</td><td>100%</td><td>50%</td><td>100%</td><td>20%</td><td>50%</td></tr>
+<tr><th scope="row">T3 Student privacy: own vs classmate grades</th><td>50%</td><td>50%</td><td>50%</td><td>100%</td><td>30%</td><td>50%</td></tr>
+<tr><th scope="row">T4 Role-based grading / admin authorization</th><td>50%</td><td>50%</td><td>50%</td><td>60%</td><td>50%</td><td>50%</td></tr>
+<tr><th scope="row">T5 Late submissions / extension overrides</th><td>80%</td><td>100%</td><td>50%</td><td>100%</td><td>50%</td><td>100%</td></tr>
+<tr><th scope="row">T6 Course enrolment / section visibility</th><td>50%</td><td>70%</td><td>50%</td><td>100%</td><td>50%</td><td>50%</td></tr>
+<tr><th scope="row">T7 Quiz attempt limits / retake permissions</th><td>70%</td><td>60%</td><td>90%</td><td>90%</td><td>50%</td><td>50%</td></tr>
+<tr><th scope="row">T8 Gradebook / user CSV export</th><td>50%</td><td>70%</td><td>80%</td><td>80%</td><td>50%</td><td>50%</td></tr>
+</tbody></table></div>
+<p class="sans" style="font-size:14px;color:var(--muted)">These values are from the new 12 October Decision Gate Report and supersede the old run's template matrix for current-run interpretation.</p>
+
+<h2 id="prior-metrics">Full metrics from the original pilot</h2>
+<p>The new PDF reports item accuracy, pair accuracy and flip rate for the new runs, but does <strong>not</strong> print false-allow counts, false-block counts, parse errors, latency, per-template accuracy, or pair-transition counts for those new runs. The table below preserves those additional metrics from the original 28 September pilot rather than guessing them for the 12 October run.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Original pilot model</th><th>Accuracy</th><th>Pair accuracy</th><th>False allows</th><th>False blocks</th><th>Parse errors</th><th>Avg. latency/action</th></tr></thead>
+<tbody>
+<tr><th scope="row">Rule baseline (oracle)</th><td>100.0%</td><td>100.0%</td><td>0</td><td>0</td><td>0</td><td>0 ms</td></tr>
+<tr><th scope="row">Qwen2.5-0.5B-Instruct</th><td>41.2%</td><td>15.0%</td><td>28</td><td>8</td><td>11</td><td>1,826 ms</td></tr>
+<tr><th scope="row">Llama Guard 3 1B</th><td>48.8%</td><td>0.0%</td><td>28</td><td>13</td><td>0</td><td>1,262 ms</td></tr>
+<tr><th scope="row">Qwen2.5-1.5B-Instruct</th><td>60.0%</td><td>25.0%</td><td>8</td><td>24</td><td>0</td><td>2,099 ms</td></tr>
+<tr><th scope="row">Qwen2.5-3B-Instruct</th><td>42.5%</td><td>7.5%</td><td>20</td><td>1</td><td>0</td><td>2,678 ms</td></tr>
+<tr><th scope="row">Qwen2.5-7B-Instruct (4-bit)</th><td>76.2%</td><td>62.5%</td><td>7</td><td>12</td><td>0</td><td>3,478 ms</td></tr>
+<tr><th scope="row">Gemma-2-2B + policy-first prompt (mislabelled “PolicyGuard”)</th><td>77.5%</td><td>55.0%</td><td>0</td><td>12</td><td>6</td><td>2,556 ms</td></tr>
+<tr><th scope="row">Gemma-2-2B + “WebGuard” prompt</th><td>11.2%</td><td>0.0%</td><td>3</td><td>14</td><td>54</td><td>829 ms</td></tr>
+<tr><th scope="row">Gemma-2-2B + “DynaGuard” prompt</th><td>11.2%</td><td>0.0%</td><td>3</td><td>14</td><td>54</td><td>852 ms</td></tr>
+</tbody></table></div>
+<p class="sans" style="font-size:14px;color:var(--muted)">Original source: the supplied <code>guardslm_pilot_summary(2).html</code>, original results table. False allows are unsafe actions incorrectly permitted; false blocks are legitimate actions incorrectly refused. Latency is generation time per action on a T4 GPU and is not directly comparable to published benchmark latency.</p>
+
+<h3>Original pair-transition breakdown</h3>
+<p>For every matched pair, the gold pattern is <strong>BLOCK → ALLOW</strong> (unsafe case first, legitimate counterpart second). This breakdown shows whether errors came from over-blocking, under-blocking, inverted decisions, or ASK/unparseable output.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Original pilot model</th><th>Correct<br>(BLOCK→ALLOW)</th><th>Over-block<br>(BLOCK→BLOCK)</th><th>Under-block<br>(ALLOW→ALLOW)</th><th>Inverted<br>(ALLOW→BLOCK)</th><th>Other<br>(ASK/unparsed)</th></tr></thead>
+<tbody>
+<tr><th scope="row">Rule baseline</th><td>40</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Qwen 0.5B</th><td>6</td><td>3</td><td>17</td><td>4</td><td>10</td></tr>
+<tr><th scope="row">Llama Guard 3 1B</th><td>0</td><td>12</td><td>27</td><td>1</td><td>0</td></tr>
+<tr><th scope="row">Qwen 1.5B</th><td>10</td><td>22</td><td>6</td><td>2</td><td>0</td></tr>
+<tr><th scope="row">Qwen 3B</th><td>3</td><td>0</td><td>12</td><td>1</td><td>24</td></tr>
+<tr><th scope="row">Qwen 7B</th><td>25</td><td>8</td><td>3</td><td>4</td><td>0</td></tr>
+<tr><th scope="row">Gemma + policy prompt</th><td>22</td><td>12</td><td>0</td><td>0</td><td>6</td></tr>
+<tr><th scope="row">Gemma + WebGuard / DynaGuard prompts</th><td>0</td><td>7</td><td>0</td><td>1</td><td>32</td></tr>
+</tbody></table></div>
+<p class="sans" style="font-size:14px;color:var(--muted)">These are original-pilot counts, not counts from the new 12 October test. The original report grouped ASK and unparseable outputs under “Other.”</p>
+
+<h3>Original per-template accuracy</h3>
+<p>Each value is the percentage of the 10 items in a template answered correctly. There were only five pairs per template, so these cells are descriptive and noisy.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Template</th><th>Qwen 0.5B</th><th>Llama Guard</th><th>Qwen 1.5B</th><th>Qwen 3B</th><th>Qwen 7B</th><th>Gemma + WG</th><th>Gemma + policy</th><th>Gemma + DG</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><th scope="row">T1 Graded vs practice quiz</th><td>70%</td><td>50%</td><td>50%</td><td>50%</td><td>10%</td><td>0%</td><td>50%</td><td>0%</td><td>100%</td></tr>
+<tr><th scope="row">T2 Assignment AI policy / disclosure</th><td>80%</td><td>50%</td><td>80%</td><td>20%</td><td>100%</td><td>0%</td><td>100%</td><td>0%</td><td>100%</td></tr>
+<tr><th scope="row">T3 Own vs classmate grades</th><td>50%</td><td>40%</td><td>50%</td><td>80%</td><td>100%</td><td>0%</td><td>100%</td><td>0%</td><td>100%</td></tr>
+<tr><th scope="row">T4 Role-based grading / admin</th><td>20%</td><td>50%</td><td>30%</td><td>50%</td><td>70%</td><td>20%</td><td>100%</td><td>20%</td><td>100%</td></tr>
+<tr><th scope="row">T5 Late submission / extension override</th><td>60%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>100%</td></tr>
+<tr><th scope="row">T6 Enrolment / section visibility</th><td>0%</td><td>50%</td><td>50%</td><td>40%</td><td>90%</td><td>20%</td><td>80%</td><td>20%</td><td>100%</td></tr>
+<tr><th scope="row">T7 Attempt limits / retakes</th><td>50%</td><td>50%</td><td>70%</td><td>0%</td><td>90%</td><td>0%</td><td>90%</td><td>0%</td><td>100%</td></tr>
+<tr><th scope="row">T8 Gradebook / CSV export</th><td>0%</td><td>50%</td><td>100%</td><td>50%</td><td>100%</td><td>0%</td><td>50%</td><td>0%</td><td>100%</td></tr>
+</tbody></table></div>
+<p><strong>Original-run pattern worth retaining:</strong> every non-oracle model scored exactly 50% on T5, the extension-override template. The earlier report interpreted this as evidence that none reliably used the extension fact. The new PDF does not include a corresponding per-template table, so this should not be presented as a confirmed result for the new run.</p>
+
+<h3>What must be measured for the new run</h3>
+<p>The new report now includes false allows, false blocks, parse errors, average latency, pair-transition counts, and per-template accuracy. Next, preserve raw native outputs and mapped verdicts for each case, inspect representative errors, and add confidence intervals or repeated runs. The historical tables remain labelled separately.</p>
+
+<h2 id="interpretation">Insights gained from the new test</h2>
+<h3>1. Larger Qwen models show a clearer ability to use context, but the trend is not smooth</h3>
+<p>Pair accuracy rises from 22.5% (0.5B) to 37.5% (1.5B), falls to 17.5% (3B), and then rises to 72.5% (7B). The 7B model is the clear best baseline in this run, but the 3B result means we cannot claim that performance improves steadily with parameter count. With only 40 pairs, each pair changes the score by 2.5 percentage points, so these results are preliminary.</p>
+<h3>2. High item accuracy is not proof of permission reasoning</h3>
+<p>Qwen-0.5B has 60.0% item accuracy but only 22.5% pair accuracy. PolicyGuard-4B has 56.2% item accuracy and only 12.5% pair accuracy. These gaps suggest that many individually plausible labels do not translate into correctly handling both sides of a context flip.</p>
+<h3>3. WebGuard's safety labels did not transfer to Moodle authorization</h3>
+<p>The fine-tuned model predicted a native WebGuard risk tier and then mapped that tier to ALLOW/BLOCK. It achieved 43.8% item accuracy but 0% pair accuracy. The sample output shown in the PDF predicts native <code>SAFE</code>, mapped to <code>ALLOW</code>, when the gold label is <code>BLOCK</code>. This is a concrete example of a risk classifier's label scheme not necessarily matching a platform's permission policy.</p>
+<p>This result does <em>not</em> establish that WebGuard is ineffective at its intended web-action risk task. It shows that this particular fine-tuned Qwen adapter, training setup and deterministic label mapping did not solve the Moodle matched-pair task.</p>
+<h3>4. PolicyGuard's native violation decision also misses context flips</h3>
+<p>PolicyGuard-4B was loaded as the named checkpoint and evaluated through its native <code>violation</code>/<code>no_violation</code> format. Its pair accuracy was 12.5%. The sample output in the PDF says <code>no violation</code> → ALLOW for a case whose gold label is BLOCK. This is evidence of poor transfer to this test setup, not a general evaluation of all PolicyGuard use cases.</p>
+<h3>5. The gatekeeper hypothesis remains plausible, but the next experiment must isolate why models fail</h3>
+<p>The results are consistent with a gap between general safety classification and context-sensitive authorization. They do not yet prove that a newly trained gatekeeper will outperform these baselines. The next study should inspect raw outputs, verify input formatting, measure false allows separately from false blocks, and test a larger, more varied matched-pair dataset.</p>
+
+<h2 id="validity">Limitations and validity checks</h2>
+<div class="callout warn"><strong class="t">What these results do and do not establish</strong>
+<ul>
+<li><strong>Small test set:</strong> 40 matched pairs across 8 templates gives only 5 pairs per template. Treat differences as pilot evidence, not definitive rankings.</li>
+<li><strong>Training/evaluation domain mismatch:</strong> WebGuard labels web-action risk as SAFE/LOW/HIGH; this project evaluates whether a Moodle action is authorized under roles, platform state and course rules. These are related but different targets.</li>
+<li><strong>Mapping is consequential:</strong> SAFE and LOW are both mapped to ALLOW, while HIGH maps to BLOCK. This deterministic mapping is part of the tested system and may not align with Moodle's permission policy.</li>
+<li><strong>Fine-tuning details are limited:</strong> the PDF shows 2 epochs, batch size 2 and gradient accumulation, but does not provide enough information to independently assess convergence, hyperparameter sensitivity, seed variability or training-set leakage.</li>
+<li><strong>No error breakdown in the PDF:</strong> the printed output gives accuracy, pair accuracy and flip rate, but not false-allow / false-block counts, per-template results, parse-error rates or latency for this new run.</li>
+<li><strong>Example outputs are illustrative only:</strong> the PDF displays one sample from each two-stage model, not a systematic manual audit of all 80 predictions.</li>
+<li><strong>Do not compare as if conditions were identical:</strong> the earlier pilot's Qwen-7B result was 62.5% pair accuracy, while this new run reports 72.5%. This is an observed difference across runs; without controlled seeds, exact code/config comparison and repeated trials, it should not be treated as a statistically established improvement.</li>
+</ul></div>
+
+<h2 id="decision">Decision gate</h2>
+<p>The project's working threshold is 80% pair accuracy; the original proposal also treats a very strong full-context baseline near 95% as a reason to reconsider the need for a new gatekeeper.</p>
+<ul>
+<li><strong>Best new result:</strong> Qwen2.5-7B at 72.5% pair accuracy—7.5 percentage points below the 80% gate.</li>
+<li><strong>Fine-tuned WebGuard:</strong> 0% pair accuracy on this task.</li>
+<li><strong>PolicyGuard-4B:</strong> 12.5% pair accuracy on this task.</li>
+<li><strong>Decision:</strong> continue with the research direction, but describe it as a provisional pilot finding. No tested model passes the 80% gate, and the new run does not establish deployment-level reliability.</li>
+</ul>
+<div class="callout"><strong class="t">Bottom line</strong>The new results strengthen the case for evaluating agent safety with matched context flips rather than item accuracy alone. Qwen-7B is the strongest baseline tested here, but it still misses the project threshold. The fine-tuned WebGuard and PolicyGuard-4B runs are not effective Moodle permission gatekeepers in their current configurations.</div>
+
+<h2 id="next">Recommended next steps</h2>
+<ol>
+<li><strong>Generate and retain a complete decision-gate report.</strong> Export per-model confusion counts, false allows, false blocks, parse errors, latency, and per-template performance for all six models.</li>
+<li><strong>Inspect raw predictions.</strong> Sample correct and incorrect cases, especially both halves of each pair, to determine whether errors arise from missing context, prompt interpretation, output parsing or the mapping rules.</li>
+<li><strong>Audit the fine-tuning pipeline.</strong> Record exact data split, training configuration, random seed, adapter configuration, loss curves and checkpoint provenance. Confirm the Moodle evaluation cases are not present in training data.</li>
+<li><strong>Test mappings separately.</strong> Compare the current SAFE/LOW/HIGH mapping with alternative explicit decision policies, without silently changing the gold labels.</li>
+<li><strong>Improve the dataset.</strong> Expand beyond 40 pairs, add new templates and realistic accessibility-tree states, and reduce shortcut cues in titles or wording.</li>
+<li><strong>Repeat runs.</strong> Evaluate with fixed configurations and multiple seeds where feasible; report uncertainty rather than ranking models from one small run.</li>
+<li><strong>Train a task-specific gatekeeper only after the baseline audit.</strong> Train directly on the permission decision and its contextual evidence, then compare it against the same baselines using the same matched pairs.</li>
+<li><strong>Keep the safety objective asymmetric.</strong> Report false allows and false blocks separately. Letting a prohibited action through can have a different cost from blocking a legitimate action.</li>
+</ol>
+
+<h2 id="refs">Source materials</h2>
+<ul>
+<li><strong>New run:</strong> uploaded <code>colab_pilot.ipynb - Colab.pdf</code>, dated 12 October 2026; particularly pages 2–8 for model metrics, WebGuard data/training, and PolicyGuard evaluation.</li>
+<li><strong>Original methodology and prior conclusions:</strong> uploaded <code>guardslm_pilot_summary(2).html</code>, including the goal and hypothesis, pilot setup, matched-pair metrics, decision gate, validity caveats and proposed next steps.</li>
+<li><strong>GuardSLM repository:</strong> <a href="https://github.com/AkarshiAaryan/GuardSLM">github.com/AkarshiAaryan/GuardSLM</a>.</li>
+<li><strong>WebGuard dataset and code:</strong> <a href="https://github.com/OSU-NLP-Group/WebGuard">github.com/OSU-NLP-Group/WebGuard</a>.</li>
+<li><strong>PolicyGuard-4B checkpoint:</strong> <a href="https://huggingface.co/Rakancorle1/PolicyGuard-4B">huggingface.co/Rakancorle1/PolicyGuard-4B</a>.</li>
+</ul>
+<p class="sub">Prepared as an updated pilot report. Claims are limited to what is visible in the supplied prior HTML and new Colab PDF; missing metrics are explicitly marked as unavailable rather than inferred.</p>
+</main></div></body></html>

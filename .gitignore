@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual Environments
+venv/
+env/
+ENV/
+
+# Data Results, Downloads & Logs
+data/results/*
+!data/results/.gitkeep
+data/webguard/*
+!data/webguard/.gitkeep
+models/*
+!models/.gitkeep
+reports/*
+!reports/.gitkeep
+!reports/guardslm_100_pairs_validation_report.md
+data/extracted_screenshots/
+data/benchmark_results/
+
+# Secrets
+.env
+*.pem
+*.key
